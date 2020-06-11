@@ -17,6 +17,7 @@
 package sentinel.dubbo.provider;
 
 import org.apache.dubbo.config.annotation.Service;
+import sentinel.dubbo.api.FooService;
 
 /**
  * @author fangjian
