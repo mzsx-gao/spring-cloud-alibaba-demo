@@ -10,9 +10,13 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>nacos-discovery-provider</module>
-        <module>nacos-discovery-consumer</module>
-        <module>nacos-config-example</module>
+        <module>nacos-demo/nacos-discovery-provider</module>
+        <module>nacos-demo/nacos-discovery-consumer</module>
+        <module>nacos-demo/nacos-config-example</module>
+        <module>sentinel-demo/sentinel-core-demo</module>
+        <module>sentinel-demo/sentinel-dubbo-demo/sentinel-dubbo-provider</module>
+        <module>sentinel-demo/sentinel-dubbo-demo/sentinel-dubbo-consumer</module>
+        <module>sentinel-demo/sentinel-dubbo-demo/sentinel-dubbo-api</module>
     </modules>
 
     <properties>
