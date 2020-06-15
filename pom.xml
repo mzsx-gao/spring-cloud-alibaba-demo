@@ -17,6 +17,8 @@
         <module>sentinel-demo/sentinel-dubbo-demo/sentinel-dubbo-provider</module>
         <module>sentinel-demo/sentinel-dubbo-demo/sentinel-dubbo-consumer</module>
         <module>sentinel-demo/sentinel-dubbo-demo/sentinel-dubbo-api</module>
+        <module>sentinel-demo/sentinel-demo-nacos-datasource</module>
+        <module>sentinel-demo/sentinel-demo-file-datasource</module>
     </modules>
 
     <properties>
