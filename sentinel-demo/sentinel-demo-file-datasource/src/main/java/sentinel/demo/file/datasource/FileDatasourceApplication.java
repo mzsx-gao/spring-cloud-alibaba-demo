@@ -16,17 +16,45 @@
 
 package sentinel.demo.file.datasource;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author xiaojing
  */
 @SpringBootApplication
+@RestController
 public class FileDatasourceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FileDatasourceApplication.class, args);
+	}
+
+	/**
+	 * 测试限流熔断，exceptionHandler是它的异常处理
+	 */
+	@RequestMapping(value = "/aa",produces="application/json;charset=UTF-8")
+	@SentinelResource(value = "aa", blockHandler = "exceptionHandler")
+	public Map<String, Object> aa() {
+		Map<String, Object> resp = new HashMap<>();
+		resp.put("code", "200");
+		resp.put("mgs", "成功返回值");
+		return resp;
+	}
+
+	public Map<String, Object> exceptionHandler(BlockException e) {
+		System.out.println("被限流了..." + e);
+		Map<String, Object> resp = new HashMap<>();
+		resp.put("code", "500");
+		resp.put("mgs", "服务器繁忙，请稍后再试");
+		return resp;
 	}
 
 }
